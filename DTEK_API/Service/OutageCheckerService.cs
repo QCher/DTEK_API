@@ -36,7 +36,14 @@ public class OutageCheckerService : IDisposable
             
             driver.Navigate().GoToUrl("https://www.dtek-krem.com.ua/ua/shutdowns");
             await Task.Delay(2000);
-            driver.FindElement(By.CssSelector(".modal__close")).Click();
+            try
+            {
+                driver.FindElement(By.CssSelector(".modal__close")).Click();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
             await Task.Delay(500);
             await FillField("city", city);
             await FillField("street", street);
