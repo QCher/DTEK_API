@@ -1,0 +1,7 @@
+﻿services:
+  dtek_api:
+    image: dtek_api
+    build:
+      context: .
+      dockerfile: DTEK_API/Dockerfile
+
